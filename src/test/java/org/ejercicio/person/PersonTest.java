@@ -18,6 +18,15 @@ class PersonTest {
     Person p5 = new Person("Antonioo",-3,"Female");
 
 
+    @BeforeEach
+    void setup(){
+
+    }
+
+    @AfterEach
+    void shutdown(){
+
+    }
 
     @Test
     void ResultadoMediaTest(){
@@ -29,18 +38,17 @@ class PersonTest {
         double[] expectedValue = {24, 28};
         assertArrayEquals(expectedValue, obtainMaleValue);
 
-        //你是说 那个function要加static吗
 
     }
 
     @Test
-    void yigetest(){
+   /** void yigetest(){
         personList.add(p2);
         personList.add(p4);
         double[] obtainMaleValue = Person.averageAgePerGender(personList);
         double[] expectedValue = {25, 29};
         assertArrayEquals(expectedValue, obtainMaleValue);
-    }
+    }*/
 
     void negativeTest(){
         personList.add(p2);
