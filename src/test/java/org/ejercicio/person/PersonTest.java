@@ -11,11 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class PersonTest {
     //Declaracion de la lista usada y los objecto usado para facilitar mis tests.
     List<Person> personList;
-    Person p1;
-    Person p2;
-    Person p3;
-    Person p4;
-  //  Person p5;
+    Person p1 = new Person("Juan",26,"Male");;
+    Person p2 = new Person("Javi",25,"Male");
+
+    Person p3 = new Person("Ana",27,"Female");;
+    Person p4 = new Person("Antonia",29,"Female");;
+  //  Person p5 = new Person("Ruben", -1, "otro");
 
 
     @BeforeEach
@@ -30,28 +31,6 @@ class PersonTest {
     void shutdown(){
         personList = null;
     }
-
-    @BeforeAll
-    //Ante de empezar todos los test inicializa los objetos que van a ser utilizados
-    void initObject(){
-        p1 = new Person("Juan",26,"Male");
-        p2 = new Person("Javi",25,"Male");
-        p3 = new Person("Ana",27,"Female");
-        p4 = new Person("Antonia",29,"Female");
-    }
-
-    @AfterAll
-    //Despues de terminar todos los test asigno null a todos los objetos
-    //para dejarselo a cargo al recolector de basura de Java.
-    void deleteAll(){
-        p1 = null;
-        p2 = null;
-        p3 = null;
-        p4 = null;
-
-    }
-
-
 
     @Test
     //Test para comprobar si el resultado corresponde a la media adquirido
@@ -110,6 +89,29 @@ class PersonTest {
     void GenderLowerCaseMaleTest(){
         assertThrows(ErrorGenderValueException.class, () -> new Person("juan ",20,"male"));
     }
+
+    @Test
+    void nameReturnTest(){
+        String obtainValue = p1.name();
+        String expectedValue = "Juan";
+        assertEquals(obtainValue,expectedValue);
+    }
+
+    @Test
+    void ageReturnTest(){
+        int obtainValue = p1.age();
+        int expectedValue = 26;
+        assertEquals(obtainValue,expectedValue);
+    }
+
+    @Test
+    void genderReturnTest(){
+        String obtainValue = p1.gender();
+        String expectedValue = "Male";
+        assertEquals(obtainValue,expectedValue);
+    }
+
+
 
 
 
