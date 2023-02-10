@@ -18,6 +18,8 @@ public class Person {
         this.gender = gender;
     }
 
+
+
     public String name(){
         return name;
     }
@@ -38,7 +40,7 @@ public class Person {
      * @return
      */
 
-    public double[] averageAgePerGender(List<Person> persons){
+    public static double[] averageAgePerGender(List<Person> persons){
         double averageAgeOfMale = 0;
         int maleCounts = 0;
         double averageAgeOfFemale = 0;
