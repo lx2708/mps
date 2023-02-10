@@ -54,6 +54,7 @@ class PersonTest {
 
 
     @Test
+    //Test para comprobar si el resultado corresponde a la media adquirido
     void ResultadoMediaTest(){
         personList.add(p1);
         personList.add(p2);
@@ -65,6 +66,7 @@ class PersonTest {
     }
 
     @Test
+    //Test para comprobar si solo existe una persona por genero, el resultado sera correcta
     void ResultadoMediaUnaPersonaPorGenderTest(){
         personList.add(p2);
         personList.add(p4);
@@ -74,31 +76,37 @@ class PersonTest {
     }
 
     @Test
+    //Test para comprobar si la exception para detectar las edades negativa funciona correctamente
     void NegativeAgeTest(){
         assertThrows(NegativeValueException.class, () -> new Person("juan ",-1,"Male"));
     }
 
     @Test
+    //Test para comprobar si la exception para detectar genero erroneo funciona correctamente
     void GenderValueMaleTest(){
         assertThrows(ErrorGenderValueException.class, () -> new Person("juan ",20,"hi"));
     }
 
     @Test
+        //Test para comprobar si la exception para detectar genero erroneo funciona correctamente
     void GenderValueFemaleTest(){
         assertThrows(ErrorGenderValueException.class, () -> new Person("juan ",20,"hi"));
     }
 
     @Test
+        //Test para comprobar si la exception para detectar genero erroneo funciona correctamente
     void GenderValueMaleFemaleTest(){
         assertThrows(ErrorGenderValueException.class, () -> new Person("juan ",20,"MaleFemale"));
     }
 
     @Test
+        //Test para comprobar si la exception para detectar genero erroneo en caso de que todos sea mayuscula funciona correctamente
     void GenderUpperCaseMaleTest(){
         assertThrows(ErrorGenderValueException.class, () -> new Person("juan ",20,"MALE"));
     }
 
     @Test
+        //Test para comprobar si la exception para detectar genero erroneo en caso de que todos sea minuscula funciona correctamente
     void GenderLowerCaseMaleTest(){
         assertThrows(ErrorGenderValueException.class, () -> new Person("juan ",20,"male"));
     }
