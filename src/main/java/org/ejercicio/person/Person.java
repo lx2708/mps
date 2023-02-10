@@ -49,9 +49,9 @@ public class Person {
      */
 
     public static double[] averageAgePerGender(List<Person> persons){
-        double averageAgeOfMale = 0;
+        double sumAgeOfMale = 0;
         int maleCounts = 0;
-        double averageAgeOfFemale = 0;
+        double sumAgeOfFemale = 0;
         int femaleCounts = 0;
         double[] averageResults = new double[2];
         for(Person p : persons){
@@ -62,16 +62,16 @@ public class Person {
 
             }*/
             if(p.gender.equals("Male")){
-                averageAgeOfMale += p.age; //直接attribute还是getters
+                sumAgeOfMale += p.age();
                 maleCounts++;
             }else {
-                averageAgeOfFemale += p.age;
+                sumAgeOfFemale += p.age();
                 femaleCounts++;
             }
         }
 
-        averageResults[0] = averageAgeOfMale/maleCounts;
-        averageResults[1] = averageAgeOfFemale/femaleCounts;
+        averageResults[0] = sumAgeOfMale/maleCounts;
+        averageResults[1] = sumAgeOfFemale/femaleCounts;
 
         return averageResults;
     }

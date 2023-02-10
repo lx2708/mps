@@ -1,32 +1,57 @@
 package org.ejercicio.person;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
+import javax.security.auth.Destroyable;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PersonTest {
-    List<Person> personList = new ArrayList<>();
-    Person p1 = new Person("juan",26,"Male");
-    Person p2 = new Person("Javi",25,"Male");
-    Person p3 = new Person("Ana",27,"Female");
-    Person p4 = new Person("Antonia",29,"Female");
-  //  Person p5 = new Person("Antonioo",-3,"Female");
+    //Declaracion de la lista usada y los objecto usado para facilitar mis tests.
+    List<Person> personList;
+    Person p1;
+    Person p2;
+    Person p3;
+    Person p4;
+  //  Person p5;
 
 
     @BeforeEach
+    //Inicialiazar la lista ante de cada test
     void setup(){
-
+        personList = new ArrayList<>();
     }
 
     @AfterEach
+    //Asignar a null a cada lista despues de cada test para
+        // dejarselo a cargo al recolector de basura de Java.
     void shutdown(){
+        personList = null;
+    }
+
+    @BeforeAll
+    //Ante de empezar todos los test inicializa los objetos que van a ser utilizados
+    void initObject(){
+        p1 = new Person("Juan",26,"Male");
+        p2 = new Person("Javi",25,"Male");
+        p3 = new Person("Ana",27,"Female");
+        p4 = new Person("Antonia",29,"Female");
+    }
+
+    @AfterAll
+    //Despues de terminar todos los test asigno null a todos los objetos
+    //para dejarselo a cargo al recolector de basura de Java.
+    void deleteAll(){
+        p1 = null;
+        p2 = null;
+        p3 = null;
+        p4 = null;
 
     }
+
+
 
     @Test
     void ResultadoMediaTest(){
