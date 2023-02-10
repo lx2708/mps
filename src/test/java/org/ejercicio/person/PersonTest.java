@@ -15,7 +15,7 @@ class PersonTest {
     Person p2 = new Person("Javi",25,"Male");
     Person p3 = new Person("Ana",27,"Female");
     Person p4 = new Person("Antonia",29,"Female");
-    Person p5 = new Person("Antonioo",-3,"Female");
+  //  Person p5 = new Person("Antonioo",-3,"Female");
 
 
     @BeforeEach
@@ -49,27 +49,37 @@ class PersonTest {
     }
 
     @Test
-   /** void yigetest(){
-        personList.add(p2);
-        personList.add(p4);
-        double[] obtainMaleValue = Person.averageAgePerGender(personList);
-        double[] expectedValue = {25, 29};
-        assertArrayEquals(expectedValue, obtainMaleValue);
-    }*/
-
-    /*void negativeTest(){
-        personList.add(p2);
-        personList.add(p5);
-        double[] obtainMaleValue = Person.averageAgePerGender(personList);
-        double[] expectedValue = {25, 29};
-        assertArrayEquals(expectedValue, obtainMaleValue);
-
-
-    }*/
-
     void NegativeAgeTest(){
         assertThrows(NegativeValueException.class, () -> new Person("juan ",-1,"Male"));
     }
+
+    @Test
+    void GenderValueMaleTest(){
+        assertThrows(ErrorGenderValueException.class, () -> new Person("juan ",20,"hi"));
+    }
+
+    @Test
+    void GenderValueFemaleTest(){
+        assertThrows(ErrorGenderValueException.class, () -> new Person("juan ",20,"hi"));
+    }
+
+    @Test
+    void GenderValueMaleFemaleTest(){
+        assertThrows(ErrorGenderValueException.class, () -> new Person("juan ",20,"MaleFemale"));
+    }
+
+    @Test
+    void GenderUpperCaseMaleTest(){
+        assertThrows(ErrorGenderValueException.class, () -> new Person("juan ",20,"MALE"));
+    }
+
+    @Test
+    void GenderLowerCaseMaleTest(){
+        assertThrows(ErrorGenderValueException.class, () -> new Person("juan ",20,"male"));
+    }
+
+
+
 
 
 }

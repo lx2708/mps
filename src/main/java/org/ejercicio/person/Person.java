@@ -20,9 +20,9 @@ public class Person {
         this.age = age;
 
 
-        /*if((!gender.equals("Male")) || (!gender.equals("Female"))){
+        if((!gender.equals("Male")) && (!gender.equals("Female"))){
             throw new ErrorGenderValueException("The gender of " + name + "is incorrect");
-        }*/
+        }
         this.gender = gender;
     }
 
