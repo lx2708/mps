@@ -14,7 +14,15 @@ public class Person {
 
     public Person(String name, int age, String gender) {
         this.name = name;
+        if(age < 0){
+            throw new NegativeValueException("The age of " + name + "is negative.");
+        }
         this.age = age;
+
+
+        /*if((!gender.equals("Male")) || (!gender.equals("Female"))){
+            throw new ErrorGenderValueException("The gender of " + name + "is incorrect");
+        }*/
         this.gender = gender;
     }
 
@@ -47,14 +55,14 @@ public class Person {
         int femaleCounts = 0;
         double[] averageResults = new double[2];
         for(Person p : persons){
-            if(p.age < 0){
+            /*if(p.age < 0){
                 throw new NegativeValueException("The age of " + p.name + "is negative.");
-            }
-            if ((!p.gender.equals("Male")) || (!p.gender.equals("Female"))) {
+            }*/
+            /*if ((!p.gender.equals("Male")) || (!p.gender.equals("Female"))) {
 
-            }
+            }*/
             if(p.gender.equals("Male")){
-                averageAgeOfMale += p.age;
+                averageAgeOfMale += p.age; //直接attribute还是getters
                 maleCounts++;
             }else {
                 averageAgeOfFemale += p.age;

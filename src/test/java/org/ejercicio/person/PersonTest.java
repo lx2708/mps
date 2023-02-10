@@ -48,7 +48,7 @@ class PersonTest {
         assertArrayEquals(expectedValue, obtainMaleValue);
     }
 
-   // @Test
+    @Test
    /** void yigetest(){
         personList.add(p2);
         personList.add(p4);
@@ -67,9 +67,9 @@ class PersonTest {
 
     }*/
 
-    /*void negativeAgeTest(){
-        assertThrows(NegativeValueException.class, () -> );
-    }*/
+    void NegativeAgeTest(){
+        assertThrows(NegativeValueException.class, () -> new Person("juan ",-1,"Male"));
+    }
 
 
 }
