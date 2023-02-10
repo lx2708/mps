@@ -47,6 +47,12 @@ public class Person {
         int femaleCounts = 0;
         double[] averageResults = new double[2];
         for(Person p : persons){
+            if(p.age < 0){
+                throw new NegativeValueException("The age of " + p.name + "is negative.");
+            }
+            if ((!p.gender.equals("Male")) || (!p.gender.equals("Female"))) {
+
+            }
             if(p.gender.equals("Male")){
                 averageAgeOfMale += p.age;
                 maleCounts++;

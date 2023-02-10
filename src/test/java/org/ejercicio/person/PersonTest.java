@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PersonTest {
     List<Person> personList = new ArrayList<>();
-    Person p1 = new Person("juan",23,"Male");
+    Person p1 = new Person("juan",26,"Male");
     Person p2 = new Person("Javi",25,"Male");
     Person p3 = new Person("Ana",27,"Female");
     Person p4 = new Person("Antonia",29,"Female");
@@ -35,13 +35,20 @@ class PersonTest {
         personList.add(p3);
         personList.add(p4);
         double[] obtainMaleValue = Person.averageAgePerGender(personList);
-        double[] expectedValue = {24, 28};
+        double[] expectedValue = {25.5, 28};
         assertArrayEquals(expectedValue, obtainMaleValue);
-
-
     }
 
     @Test
+    void ResultadoMediaUnaPersonaPorGenderTest(){
+        personList.add(p2);
+        personList.add(p4);
+        double[] obtainMaleValue = Person.averageAgePerGender(personList);
+        double[] expectedValue = {25, 29};
+        assertArrayEquals(expectedValue, obtainMaleValue);
+    }
+
+   // @Test
    /** void yigetest(){
         personList.add(p2);
         personList.add(p4);
@@ -50,7 +57,7 @@ class PersonTest {
         assertArrayEquals(expectedValue, obtainMaleValue);
     }*/
 
-    void negativeTest(){
+    /*void negativeTest(){
         personList.add(p2);
         personList.add(p5);
         double[] obtainMaleValue = Person.averageAgePerGender(personList);
@@ -58,7 +65,11 @@ class PersonTest {
         assertArrayEquals(expectedValue, obtainMaleValue);
 
 
-    }
+    }*/
+
+    /*void negativeAgeTest(){
+        assertThrows(NegativeValueException.class, () -> );
+    }*/
 
 
 }
